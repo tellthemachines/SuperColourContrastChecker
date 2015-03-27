@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Super Colour Contrast Checker</title>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Fredoka+One|Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+
+    <header role="banner">
+      <h1>Super Colour Contrast Checker</h1>
+      <p>
+        Check your text, link and background colours against <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> specifications.
+      </p>
+    </header>
+
+    <main role="main" class="fixed-colours">
+
+      <section class="picker">
+        <h2>Pick your colours</h2>
+        <form>
+          <p>
+            <span class= "line">
+              <label for="foreground">Text</label> #
+              <input type="text" name="foreground" id="foreground" value="000000" class="color {hash:false,caps:false,styleElement:'bob',pickerBorderColor:'#666',pickerInsetColor:'#666'}">
+            </span>
+            <span class= "line">
+              <button name="fgl" type="button" onclick="changehue('foreground', 'lighten');">lighten<span class="hidden"> text</span></button>
+              <button name="fgd" type="button" onclick="changehue('foreground', 'darken');">darken<span class="hidden"> text</span></button>
+            </span>
+          </p>
+          <p>
+            <span class= "line">
+              <label for="link">Link</label> #
+              <input type="text" name="link" id="link" value="204ad5" class="color {hash:false,caps:false,styleElement:'bob',pickerBorderColor:'#666',pickerInsetColor:'#666'}">
+            </span>
+            <span class= "line">
+              <button name="lnl" type="button" onclick="changehue('link', 'lighten');">lighten<span class="hidden"> link</span></button>
+              <button name="lnd" type="button" onclick="changehue('link', 'darken');">darken<span class="hidden"> link</span></button>
+            </span>
+          </p>
+          <p>
+            <span class= "line">
+              <label for="background">Background</label> #
+              <input type="text" name="background" id="background" value="ffffff" class="color {hash:false,caps:false,styleElement:'bob',pickerBorderColor:'#666',pickerInsetColor:'#666'}">
+            </span>
+            <span class= "line">
+              <button name="bgl" type="button" onclick="changehue('background', 'lighten');">lighten<span class="hidden"> background</span></button>
+              <button name="bgd" type="button" onclick="changehue('background', 'darken');">darken<span class="hidden"> background</span></button>
+            </span>
+          </p>
+        </form>
+      </section>
+
+      <section class="results">
+        <h2>Results</h2>
+
+        <div>
+        <h3>Specification</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Text type
+                </th>
+                <th>
+                  Level AA
+                </th>
+                <th>
+                  Level AAA
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Normal text</td>
+                <td id="ntaa"></td>
+                <td id="ntaaa"></td>
+              </tr>
+              <tr>
+                <td>Large text</td>
+                <td id="ltaa"></td>
+                <td id="ltaaa"></td>
+              </tr>
+              <tr>
+                <td>Normal link</td>
+                <td id="nlaa"></td>
+                <td id="nlaaa"></td>
+              </tr>
+              <tr>
+                <td>Large link</td>
+                <td id="llaa"></td>
+                <td id="llaaa">ss</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Ratios</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Relation
+                </th>
+                <th>
+                  Ratio
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Text to background</td><td id="fg-bg"></td>
+              </tr>
+              <tr>
+                <td>Link to background</td><td id="ln-bg"></td>
+              </tr>
+              <tr>
+                <td>Link to text</td><td id="ln-fg"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+    </main>
+
+    <footer>
+      <small>Designed by <a href="http://tellthemachines.com">tellthemachines</a> based on WebAIM's <a href="http://webaim.org/resources/contrastchecker/">Color Contrast Checker</a>.</small>
+    </footer>
+
+  <script src="js/contrast-tool.js"></script>
+  <script src="js/jscolor/jscolor.js"></script>
+</body>
+</html>
